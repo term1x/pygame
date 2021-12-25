@@ -1,0 +1,45 @@
+import pygame
+pygame.init()
+win=pygame.display.set_mode((500,500))
+
+
+
+x=100
+y=50
+x1=100
+y1=50
+dc='down'
+dx='left'
+while True:
+  for event in pygame.event.get():
+    if event.type ==pygame.QUIT:
+      exit()
+
+
+  if dc=='up':
+    y=y-1
+  elif dc=='down':
+    y=y+1
+  if y>500:
+    dc='up'
+  if y<0:
+    dc='down'
+
+  if dx=='left':
+    x1=x1-1
+  elif dx=='right':
+    x1=x1+1
+  if x1>500:
+    dx='left'
+  if x1<0:
+    dx='right'
+
+
+
+  win.fill((255,255,255))
+
+  pygame.draw.rect(win,(0,0,0),(x,y,100,150))
+  pygame.draw.circle(win,(0,0,0),(x1,y1),50)
+  pygame.display.update()
+
+  pygame.time.delay(10)
