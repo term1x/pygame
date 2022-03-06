@@ -1,0 +1,34 @@
+import pygame as pg
+
+def load_img(name):
+   img = pg.image.load(name)
+   img = img.convert()
+   colorkey = img.get_at((0,0))
+   img.set_colorkey(colorkey)
+   return img
+
+
+
+
+
+pg.init()
+size = W, H = 1200,800
+FPS =30
+win = pg.display.set_mode(size)
+img = load_img('erikzham555.png')
+img1 = pg.transform.scale(img, (200,200))
+img2 = pg.transform.scale(img, (400,400))
+#img1 = pg.image.load('erikzham555.png')
+#img2 = pg.image.load('erikzham555.png')
+#img = img.convert()
+#colorkey = img.get_at((0,0))
+#img.set_colorkey(colorkey)
+
+while True:
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            exit()
+
+    win.blit(img1, (0,0))
+    win.blit(img2,(800,0))
+    pg.display.update()
